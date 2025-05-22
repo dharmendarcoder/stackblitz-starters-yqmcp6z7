@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import Breadcrumb from "@/components/Breadcrumb";
 
 interface PokemonDetailProps {
   params: { name: string };
@@ -23,13 +24,7 @@ export default async function PokemonDetail({ params }: PokemonDetailProps) {
 
   return (
     <main className="p-4 max-w-3xl mx-auto">
-      <nav className="text-sm mb-4">
-        <Link href="/pokemon" className="text-blue-600 hover:underline">
-          Home
-        </Link>{" "}
-        &rarr; <span className="capitalize">{pokemon.name}</span>
-      </nav>
-
+      <Breadcrumb name={pokemon.name}></Breadcrumb>
       <h1 className="text-3xl font-bold capitalize mb-4">{pokemon.name}</h1>
       <img
         src={pokemon.sprites.front_default}
